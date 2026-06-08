@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
+from .models import Course
 
-# Create your views here.
+
+def course_list(request):
+	courses = Course.objects.select_related("department").order_by("course_code")
+	return render(request, "courses/course_list.html", {"courses": courses})
+
+
+def course_detail(request, course_code):
+	course = get_object_or_404(Course, course_code=course_code)
+	return render(request, "courses/course_detail.html", {"course": course})

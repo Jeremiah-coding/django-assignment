@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Student Schema | University Portal{% endblock %}
+
+{% block content %}
+<h2>Student Information Schema</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Field Name</th>
+            <th>Field Type</th>
+            <th>Required</th>
+            <th>Unique</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for field in fields %}
+        <tr>
+            <td>{{ field.name }}</td>
+            <td>{{ field.get_internal_type }}</td>
+            <td>{% if field.null %}No{% else %}Yes{% endif %}</td>
+            <td>{% if field.unique %}Yes{% else %}No{% endif %}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

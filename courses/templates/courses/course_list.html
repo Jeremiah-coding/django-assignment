@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Courses | University Portal{% endblock %}
+
+{% block content %}
+<h2>Courses</h2>
+{% for course in courses %}
+    <section class="card">
+        <h3>
+            <a href="{% url 'courses:detail' course.course_code %}">{{ course.course_code }} - {{ course.title }}</a>
+        </h3>
+        <p class="meta">Department: {{ course.department.code }}</p>
+        <p class="meta">Credits: {{ course.credits }} | Level: {{ course.level }}</p>
+        {% if course.is_active %}
+            <span class="pill">Active</span>
+        {% else %}
+            <span class="pill">Inactive</span>
+        {% endif %}
+    </section>
+{% empty %}
+    <p>No courses available yet.</p>
+{% endfor %}
+{% endblock %}

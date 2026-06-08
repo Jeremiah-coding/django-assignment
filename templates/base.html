@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}University Portal{% endblock %}</title>
+    <style>
+        :root {
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --text: #1f2937;
+            --muted: #4b5563;
+            --accent: #0f766e;
+            --accent-2: #155e75;
+            --line: #d1d5db;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(180deg, #eef6ff 0%, var(--bg) 100%);
+            color: var(--text);
+        }
+        header {
+            background: white;
+            border-bottom: 1px solid var(--line);
+        }
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        nav {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--accent-2);
+            font-weight: 600;
+        }
+        h1 { margin-top: 0; }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+        }
+        .meta {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card);
+            border: 1px solid var(--line);
+        }
+        th, td {
+            text-align: left;
+            padding: 0.7rem;
+            border-bottom: 1px solid var(--line);
+        }
+        th { background: #eff6ff; }
+        .pill {
+            display: inline-block;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            background: #ecfeff;
+            color: #115e59;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>University Course Directory</h1>
+        <nav>
+            <a href="/departments/">Departments</a>
+            <a href="/courses/">Courses</a>
+            <a href="/students/schema/">Student Schema</a>
+        </nav>
+    </div>
+</header>
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>

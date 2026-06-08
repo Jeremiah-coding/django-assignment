@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Departments | University Portal{% endblock %}
+
+{% block content %}
+<h2>Departments</h2>
+{% for department in departments %}
+    <section class="card">
+        <h3>{{ department.code }} - {{ department.name }}</h3>
+        <p>{{ department.description }}</p>
+        <p class="meta">Building: {{ department.building_name }}</p>
+        <p class="meta">Created: {{ department.created_at|date:"M d, Y" }}</p>
+    </section>
+{% empty %}
+    <p>No departments available yet.</p>
+{% endfor %}
+{% endblock %}

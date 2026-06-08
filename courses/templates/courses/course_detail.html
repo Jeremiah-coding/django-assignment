@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}{{ course.course_code }} | Course Detail{% endblock %}
+
+{% block content %}
+<h2>{{ course.course_code }} - {{ course.title }}</h2>
+<p>{{ course.description }}</p>
+<p class="meta">Department: {{ course.department.name }} ({{ course.department.code }})</p>
+<p class="meta">Credits: {{ course.credits }}</p>
+<p class="meta">Level: {{ course.level }}</p>
+<p class="meta">Status: {% if course.is_active %}Active{% else %}Inactive{% endif %}</p>
+<p><a href="{% url 'courses:list' %}">Back to all courses</a></p>
+{% endblock %}
